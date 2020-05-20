@@ -1,0 +1,11 @@
+<h1> <%= @user.name%></h1>
+
+<ul>
+    <% @user.recipes.each do |recipe|%>
+        <li><%= link_to recipe.name, recipe_path(recipe)%></li>
+    <%end%>
+</ul>
+
+<%= form_tag user_path(@user), method: "delete" do%>
+    <%= submit_tag "Delete this user"%>
+<% end %>
