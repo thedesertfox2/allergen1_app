@@ -2,7 +2,7 @@
 
 <ul>
     <% @ingredients.each do |ing| %> 
-        <li><%= link_to ing.name, ingredient_path(ing) %> -Amount of people with this allergy:<%= ing.allergies.where("user_id = ?", params[:user_id]).count %></li>
+        <li><%= link_to ing.name, ingredient_path(ing) %> -Amount of people with this allergy: <%= ing.allergies.order("user_id_count ASC").count %></li>
     <% end %> 
 </ul>
 

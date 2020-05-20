@@ -1,0 +1,8 @@
+<h1>Create a new user</h1>
+<%= render partial: "shared/error_list"%>
+
+<%= form_for @user do |f|%>
+    <%= f.label :name%>
+    <%= f.text_field :name%>
+    <%= f.submit%>
+<% end %>
