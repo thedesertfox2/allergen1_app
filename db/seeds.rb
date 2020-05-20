@@ -10,10 +10,16 @@ User.destroy_all
 Recipe.destroy_all
 IngredientRecipe.destroy_all
 Ingredient.destroy_all
-
+Allergy.destroy_all
+shannon = User.create(name: "Shannon")
 carrot = Ingredient.create(name: "Carrot")
 chocolate = Ingredient.create(name: "chocolate")
-alex = User.create(name: "Alex", allergy: carrot.name)
+alex = User.create(name: "Alex")
+mert = User.create(name: "Mert")
+Allergy.create(user: alex, ingredient: carrot)
+Allergy.create(user: alex, ingredient: chocolate)
+Allergy.create(user: mert, ingredient: chocolate)
+Allergy.create(user: shannon, ingredient: chocolate)
 
 
 carrot_cake = Recipe.create(name: "Carrot Cake", user_id: alex.id)

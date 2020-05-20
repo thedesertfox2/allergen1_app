@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_163129) do
+ActiveRecord::Schema.define(version: 2020_05_20_193445) do
+
+  create_table "allergies", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "ingredient_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "ingredient_recipes", force: :cascade do |t|
     t.integer "recipe_id"
@@ -21,9 +28,9 @@ ActiveRecord::Schema.define(version: 2020_05_20_163129) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.integer "allergy_occurence"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "allergy_occurence"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -35,7 +42,6 @@ ActiveRecord::Schema.define(version: 2020_05_20_163129) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "allergy"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
